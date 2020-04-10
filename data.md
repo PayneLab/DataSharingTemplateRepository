@@ -8,5 +8,3 @@ Data File 2 - FakeBPData_big.txt
 - stored remotely on Box
 - used in make_figure_2.ipynb
 - in the manuscript (DOI LINK) as Supplemental Table 2
-
-* supplemental table 1 in the manuscript comes from selecting Hight, Weight, and Length from example.txt in the data folder.
