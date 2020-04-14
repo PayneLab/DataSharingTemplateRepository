@@ -1,3 +1,10 @@
 # Describe how to files in the data folder relate to the supplemental tables in the manuscript
-In this example it could be something such as:
-* supplemental table 1 in the manuscript comes from selecting Hight, Weight, and Length from example.txt in the data folder.
+Data File 1 - FakeBPData.txt
+- stored locally in the repository in ./data/FakeData.txt
+- used in make_figure_1.ipynb
+- in the manuscript (DOI LINK) as Supplemental Table 1
+
+Data File 2 - FakeBPData_big.txt
+- stored remotely on Box
+- used in make_figure_2.ipynb
+- in the manuscript (DOI LINK) as Supplemental Table 2
