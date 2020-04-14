@@ -13,6 +13,8 @@ def load_from_file():
     #Here we read in a tab-separated file with headers in the first row
     #    and index names in the first column.
     df = pd.read_csv(file, index_col=0)#, sep='\t', header=0, index_col=0)
+    #Because the index column is the date, we convert here
+    df.index=pd.to_datetime(df.index)
     #This dataframe is then returned.
     return df
 
@@ -38,5 +40,7 @@ def load_from_box(download_to_path="data/datafile.txt", url_file_path="data/url.
 
     #Load the data into a pandas df
     df = pd.read_csv(download_to_path, index_col=0)
+    #Because the index column is the date, we convert here
+    df.index=pd.to_datetime(df.index)
 
     return df
