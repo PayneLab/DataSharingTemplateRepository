@@ -1,5 +1,7 @@
 import pandas as pd
 import requests
+import os.path
+from os import path
 
 #Data loader functions belong here. This is where
 #  information about the data files is found.
@@ -19,24 +21,36 @@ def load_from_file():
     return df
 
 #This will load the data by first streaming it from box, then storing it in a pandas datafrtame.
-def load_from_box(download_to_path="data/datafile.txt", url_file_path="data/url.txt"):
+def load_from_box(redownload = False):
     """Download a file from a given url to the specified location.
     Parameters:
-    path (str): The path to the file to save the file to on the local machine.
+    redownload (bool): If True will redownload the datafiles from box
     Returns:
-    str: The path the file was downloaded to.
+    A pandas dataframe.
     """
-    #this is the url from box
-    # url = 'https://byu.box.com/shared/static/ux3dmxd3tjzvydm5870c1686cs51m1ek.txt'
-    #OR
-    url_file = open(url_file_path, 'r')
-    url = url_file.read().strip()
-    url_file.close()
 
-    response = requests.get(url, allow_redirects=True)
+    download_to_path="data/datafile.txt" #the path to where the datafile from box will be loaded to
+    url_file_path="data/url.txt" #the path to where the download from box url is stored. This is a static url, so the users won't need to change it. 
 
-    with open(download_to_path, 'wb') as dest:
-        dest.write(response.content)
+    if path.exists(download_to_path) and redownload: #If the file has been downloaded, and the user wants to update, redownload the file
+        url_file = open(url_file_path, 'r')
+        url = url_file.read().strip()
+        url_file.close()
+        response = requests.get(url, allow_redirects=True)
+
+        with open(download_to_path, 'wb') as dest:
+            dest.write(response.content)
+
+    if path.exists(download_to_path) == False: #If the file hasn't been downloaded before download it
+        url_file = open(url_file_path, 'r')
+        url = url_file.read().strip()
+        url_file.close()
+        response = requests.get(url, allow_redirects=True)
+
+        with open(download_to_path, 'wb') as dest:
+            dest.write(response.content)
+
+
 
     #Load the data into a pandas df
     df = pd.read_csv(download_to_path, index_col=0)
