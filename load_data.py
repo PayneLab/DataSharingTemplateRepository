@@ -29,7 +29,7 @@ def load_from_box(redownload = False):
     A pandas dataframe.
     """
 
-    download_to_path="data/datafile.txt" #the path to where the datafile from box will be loaded to
+    download_to_path="data/datafile.csv" #the path to where the datafile from box will be loaded to
     url_file_path="data/url.txt" #the path to where the download from box url is stored. This is a static url, so the users won't need to change it. 
 
     if path.exists(download_to_path) and redownload: #If the file has been downloaded, and the user wants to update, redownload the file
