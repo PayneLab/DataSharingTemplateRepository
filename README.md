@@ -3,7 +3,7 @@
 This is a general template demonstrating the pattern recommended in the publication "Simple and Efficient Data Dissemination for Individual Labs" by the Payne lab at Brigham Young University. This repository can be downloaded as a template for data sharing and analysis.
 
 ## Publication
-The template is currently in its initial stages.
+The publication can be accessed at PubMed here (https://pubmed.ncbi.nlm.nih.gov/32790999/).
 
 ## Repository contents
 This repository contains all information, data and code necessary to replicate the analyses in the manuscript. The file names are intentionally self explanatory, but are briefly reviewed below.
